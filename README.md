@@ -1,1 +1,0 @@
-# enterprise-sql-data-warehouse
