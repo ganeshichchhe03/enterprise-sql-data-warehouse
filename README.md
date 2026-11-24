@@ -1,84 +1,223 @@
-# Data Warehouse and Analytics Project
+# 🚀 Data Warehouse & Analytics Project
 
-## Overview
-This project demonstrates the implementation of a modern Data Warehouse solution using SQL Server. The project follows the Medallion Architecture approach (Bronze, Silver, and Gold layers) to transform raw ERP and CRM data into analytics-ready datasets for business reporting and decision-making.
+## 📋 Overview
 
-## Objectives
-- Build a scalable Data Warehouse using SQL Server.
-- Develop ETL pipelines for data ingestion and transformation.
-- Improve data quality through cleansing and standardization.
-- Design analytical data models using Star Schema.
-- Generate insights related to customer behavior, product performance, and sales trends.
+This project demonstrates the implementation of a modern Data Warehouse using SQL Server. The solution follows the Medallion Architecture (Bronze, Silver, and Gold layers) to transform raw CRM and ERP data into clean, business-ready datasets for reporting and analytics.
 
-## Architecture
+The project covers the complete data warehousing lifecycle, including data ingestion, transformation, cleansing, data quality validation, and analytical modeling.
 
-### Bronze Layer
-- Loaded raw ERP and CRM datasets from CSV files into SQL Server.
-- Preserved source data without modifications for traceability.
+---
 
-### Silver Layer
-- Performed data cleaning and transformation.
-- Removed duplicates and handled missing values.
-- Standardized formats and integrated multiple source systems.
+## 🎯 Project Objectives
 
-### Gold Layer
-- Created business-ready datasets.
-- Designed Fact and Dimension tables.
-- Implemented Star Schema for analytical reporting.
+- Build a scalable SQL Server Data Warehouse.
+- Integrate CRM and ERP data sources.
+- Develop automated ETL pipelines using Stored Procedures.
+- Apply data cleansing and transformation rules.
+- Create analytics-ready datasets.
+- Enable business reporting and decision-making.
 
-## ETL Process
-1. Extract data from ERP and CRM CSV files.
-2. Load raw data into Bronze Layer.
-3. Clean and transform data in Silver Layer.
-4. Build analytical models in Gold Layer.
-5. Run SQL-based analytics for reporting and insights.
+---
 
-## Technologies Used
+## 🏗️ Data Architecture
+
+The project follows the Medallion Architecture pattern:
+
+### Bronze Layer (Raw Data)
+- Loads source data from CSV files.
+- Stores data without business transformations.
+- Preserves original source records.
+- Acts as the landing zone for CRM and ERP datasets.
+
+### Silver Layer (Cleansed Data)
+- Standardizes data formats.
+- Removes duplicates.
+- Handles missing or invalid values.
+- Applies business rules.
+- Performs data quality validation.
+- Creates clean and consistent datasets.
+
+### Gold Layer (Business Layer)
+- Business-ready analytical datasets.
+- Fact and Dimension tables.
+- Star Schema design.
+- Optimized for reporting and analytics.
+
+---
+
+## 📊 Data Sources
+
+### CRM Data
+- Customer Information
+- Product Information
+- Sales Transactions
+
+### ERP Data
+- Customer Demographics
+- Customer Location Data
+- Product Category Information
+
+---
+
+## ⚙️ ETL Pipeline
+
+The ETL process is implemented using SQL Server Stored Procedures.
+
+### Bronze Layer Processing
+
+The Bronze loading procedure:
+
+- Truncates existing tables.
+- Loads CSV files using BULK INSERT.
+- Imports CRM and ERP source data.
+- Tracks execution duration.
+- Logs processing information.
+- Handles loading errors using TRY-CATCH.
+
+### Silver Layer Processing
+
+The Silver loading procedure performs:
+
+#### Customer Data Transformation
+- Customer deduplication using ROW_NUMBER().
+- Gender normalization.
+- Marital status standardization.
+- Data cleansing and trimming.
+
+#### Product Data Transformation
+- Product category extraction.
+- Product code standardization.
+- Product line mapping.
+- Historical product date handling.
+
+#### Sales Data Validation
+- Invalid date correction.
+- Sales amount validation.
+- Price recalculation.
+- Missing value handling.
+
+#### ERP Data Standardization
+- Customer ID normalization.
+- Country name standardization.
+- Gender normalization.
+- Future date validation.
+
+---
+
+## 🧹 Data Quality Checks
+
+The ETL pipeline implements multiple quality controls:
+
+- Duplicate record removal.
+- Null value handling.
+- Invalid date correction.
+- Standardized code mapping.
+- Sales value validation.
+- Customer data cleansing.
+- Country code normalization.
+- Product category standardization.
+
+---
+
+## 🗄️ Database Schemas
+
+### Bronze Schema
+
+#### CRM Tables
+- crm_cust_info
+- crm_prd_info
+- crm_sales_details
+
+#### ERP Tables
+- erp_loc_a101
+- erp_cust_az12
+- erp_px_cat_g1v2
+
+### Silver Schema
+
+#### CRM Tables
+- crm_cust_info
+- crm_prd_info
+- crm_sales_details
+
+#### ERP Tables
+- erp_loc_a101
+- erp_cust_az12
+- erp_px_cat_g1v2
+
+---
+
+## 🛠️ Technologies Used
+
 - SQL Server
 - SQL Server Management Studio (SSMS)
 - T-SQL
 - Data Warehousing
 - ETL Development
-- Star Schema Modeling
-- Git & GitHub
-
-## Database Design
-The warehouse consists of:
-- Fact Sales
-- Dim Customer
-- Dim Product
-- Dim Date
-
-These tables support efficient analytical queries and reporting.
-
-## Key Skills Demonstrated
-- Data Warehousing
-- SQL Development
-- ETL Pipeline Development
+- Stored Procedures
+- BULK INSERT
 - Data Modeling
-- Data Cleansing
-- Star Schema Design
-- Data Analytics
+- Git
+- GitHub
 
-## Business Analysis
-Using SQL queries, the project provides insights into:
-- Customer purchasing behavior
-- Product performance analysis
-- Sales trends
-- Revenue reporting
-- Business KPIs
+---
 
-## Repository Structure
+## 📁 Project Structure
 
 ```text
-datasets/      -> Source CSV files
-docs/          -> Architecture and design documents
-scripts/       -> ETL and transformation scripts
-tests/         -> Data quality validation scripts
+data-warehouse-project/
+│
+├── datasets/
+│   ├── source_crm/
+│   └── source_erp/
+│
+├── scripts/
+│   ├── bronze/
+│   ├── silver/
+│   └── gold/
+│
+├── docs/
+│
+├── README.md
+│
+└── LICENSE
 ```
 
-## Results
-Successfully developed an end-to-end Data Warehouse solution that converts raw business data into structured, analytics-ready information for reporting and decision-making.
+---
 
-## Author
-Ganesh Ichchhe
+## 💡 Key Skills Demonstrated
+
+- Data Warehousing
+- SQL Development
+- ETL Pipeline Design
+- Data Cleansing
+- Data Quality Management
+- Data Integration
+- Stored Procedure Development
+- SQL Performance Optimization
+- Data Modeling
+- Business Intelligence Foundations
+
+---
+
+## 📈 Business Value
+
+This project transforms raw operational data into a structured analytical platform capable of supporting:
+
+- Customer Analytics
+- Product Analytics
+- Sales Reporting
+- Performance Measurement
+- Business Decision Making
+
+---
+
+## 👨‍💻 Author
+
+**Ganesh Ichchhe**
+- GitHub: https://github.com/ganeshichchhe03
+
+---
+
+## ⭐ Future Enhancements
+- Power BI Dashboards
